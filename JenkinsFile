@@ -1,16 +1,41 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    git branch: 'main' credentialsId: '82ad800c-aa69-4d87-8014-6f1a42710831', url: 'https://github.com/ihrishikesh0896/waf-using-python.git'
-                    sh 'ls -lart ./*'
-                    sh 'git branch -a'
-                    sh 'git checkout main'
-                    echo 'here'
-                }
+                // Checkout the code from your Git repository
+                sh 'echo here'
+                git branch: 'main 'credentialsId: '82ad800c-aa69-4d87-8014-6f1a42710831', url: 'https://github.com/ihrishikesh0896/waf-using-python.git'
+                git 'https://github.com/ihrishikesh0896/waf-using-python.git'
             }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your application (e.g., for a Node.js project)
+                sh 'pip install -r requirements.txt'
+                sh 'echo "installed requirements"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy your application (e.g., to a web server)
+                // Replace with your deployment commands
+                sh 'python3 app.py'
+            }
+        }
+    }
+
+    post {
+        success {
+            // Notify on success (e.g., via email or messaging)
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            // Notify on failure and take corrective actions
+            echo 'Pipeline failed!'
         }
     }
 }
