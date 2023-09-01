@@ -7,6 +7,7 @@ pipeline {
                     git branch: 'main' credentialsId: '82ad800c-aa69-4d87-8014-6f1a42710831', url: 'https://github.com/ihrishikesh0896/waf-using-python.git'
                     sh 'ls -lart ./*'
                     sh 'git branch -a'
+                    sh 'git checkout main'
                 }
             }
         }
