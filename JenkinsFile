@@ -8,6 +8,7 @@ pipeline {
                     sh 'ls -lart ./*'
                     sh 'git branch -a'
                     sh 'git checkout main'
+                    echo 'here'
                 }
             }
         }
