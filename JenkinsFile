@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Checkout the code from your Git repository
                 sh 'echo here'
-                git branch: 'main 'credentialsId: '82ad800c-aa69-4d87-8014-6f1a42710831', url: 'https://github.com/ihrishikesh0896/waf-using-python.git'
+                git branch: 'main', credentialsId: '82ad800c-aa69-4d87-8014-6f1a42710831', url: 'https://github.com/ihrishikesh0896/waf-using-python.git'
                 git 'https://github.com/ihrishikesh0896/waf-using-python.git'
             }
         }
