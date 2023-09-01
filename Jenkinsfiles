@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from your Git repository
+                git 'https://github.com/ihrishikesh0896/waf-using-python.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your application (e.g., for a Node.js project)
+                sh 'pip install -r requirements.txt'
+                sh 'echo "installed requirements"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy your application (e.g., to a web server)
+                // Replace with your deployment commands
+                sh 'python3 app.py'
+            }
+        }
+    }
+
+    post {
+        success {
+            // Notify on success (e.g., via email or messaging)
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            // Notify on failure and take corrective actions
+            echo 'Pipeline failed!'
+        }
+    }
+}
