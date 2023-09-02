@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Deploy your application (e.g., to a web server)
                 // Replace with your deployment commands
-                sh 'python3 app.py'
+                sh '/var/lib/jenkins/workspace/ZAP/myenv/bin/python3 app.py'
             }
         }
     }
