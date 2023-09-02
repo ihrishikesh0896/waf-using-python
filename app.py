@@ -22,7 +22,7 @@ def waf_protect():
 def search():
     query = request.args.get("q")
     # Process the search query
-    return "Search results for: " + query
+    return "Search results for: " + str(query)
 
 if __name__ == "__main__":
     app.run()
